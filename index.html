@@ -121,25 +121,25 @@
               <ul class="theme-list">
                 <li class="fg-dark"><b>From:</b> Hyderabad, India</li>
                 <li class="fg-dark"><b>Lives In:</b> North Carolina, US</li>
-                <li class="fg-dark"><b>Age:</b> 
+                <li class="fg-dark"><b id="ageDisplay">Age:</b> 
                   
                   <script>
                     function updateAgeDisplay() {
                       const birthDate = new Date('1998-08-07'); // Replace with your birthdate
                       const currentDate = new Date();
-                  
+                      
                       const ageInMillis = currentDate - birthDate;
                       const ageInSeconds = Math.floor(ageInMillis / 1000);
-                  
+                      
                       const hours = Math.floor(ageInSeconds / 3600);
                       const minutes = Math.floor((ageInSeconds % 3600) / 60);
                       const seconds = ageInSeconds % 60;
-                  
+                      
                       document.getElementById('ageDisplay').innerHTML = `
-                        <b>Age:</b> ${hours} hours, ${minutes} minutes, ${seconds} seconds
+                        Age: ${hours} hours, ${minutes} minutes, ${seconds} seconds
                       `;
                     }
-                  
+                    
                     updateAgeDisplay();
                     setInterval(updateAgeDisplay, 1000);
                   </script>
