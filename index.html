@@ -129,14 +129,17 @@
                       const currentDate = new Date();
                       
                       const ageInMillis = currentDate - birthDate;
-                      const ageInSeconds = Math.floor(ageInMillis / 1000);
                       
-                      const hours = Math.floor(ageInSeconds / 3600);
+                      const ageInSeconds = Math.floor(ageInMillis / 1000);
+                      const years = Math.floor(ageInSeconds / 31536000); // 365 days
+                      const months = Math.floor((ageInSeconds % 31536000) / 2592000); // 30 days
+                      const days = Math.floor((ageInSeconds % 2592000) / 86400); // 24 hours
+                      const hours = Math.floor((ageInSeconds % 86400) / 3600); // 60 minutes
                       const minutes = Math.floor((ageInSeconds % 3600) / 60);
                       const seconds = ageInSeconds % 60;
                       
                       document.getElementById('ageDisplay').innerHTML = `
-                        Age: ${hours} hours, ${minutes} minutes, ${seconds} seconds
+                        Age: ${years} years, ${months} months, ${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds
                       `;
                     }
                     
